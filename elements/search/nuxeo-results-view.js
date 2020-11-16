@@ -281,7 +281,7 @@ Polymer({
     },
   },
 
-  observers: ['_visibilityOrAutoChanged(visible, auto)'],
+  observers: ['_manageAutoSearch(visible, auto)'],
 
   ready() {
     if (!this._nxProvider) {
@@ -302,7 +302,7 @@ Polymer({
     this.$$('#collapse').toggle();
   },
 
-  _visibilityOrAutoChanged() {
+  _manageAutoSearch() {
     if (this.visible && this.auto) {
       this._search();
     }
@@ -339,6 +339,7 @@ Polymer({
       this._params = {};
       this._paramsCount = 0;
     }
+    this._manageAutoSearch();
   },
 
   _search() {
